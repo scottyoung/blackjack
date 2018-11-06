@@ -1,0 +1,26 @@
+.diamond {
+	background-image: url('../images/diamond.png');
+}
+
+.spade {
+	background-image: url('../images/spade.png');
+}
+
+.heart {
+	background-image: url('../images/heart.png');
+}
+
+.club {
+	background-image: url('../images/club.png');
+}
+
+.suit {
+	display: inline-block;
+	width: 11px;
+	height: 11px;
+	background-size: cover;
+}
+
+.count {
+	font-weight: bold;
+}
