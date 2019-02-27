@@ -38,6 +38,8 @@ class Hand {
 			<div class='count'>Card Count Total: ${this.total}</div>
 		`
 
+		html += this.bust_check;
+
 		return html;
 /*
 		return `
@@ -72,6 +74,14 @@ class Hand {
 
 	get hit_me() {
 		this.cards.push(deck.pop());
+	}
+
+	get bust_check() {
+		const total = this.total;
+		if (total > 21) {
+			return `<div class='bust'>BUSTED!</div>`;
+		}
+		return '';
 	}
 
 
@@ -122,6 +132,7 @@ document.getElementById('shuffle').addEventListener("click",function(){
 document.getElementById('start').addEventListener("click",function(){
 	shuffle(deck);
 	player_hand = new Hand(deck.pop(), deck.pop());
+	document.getElementById('play_area').classList.remove('hidden');
 	document.getElementById('player_hand').innerHTML = player_hand.print_hand;
 	dealer_hand = new Hand(deck.pop(), deck.pop());
 	document.getElementById('dealer_hand').innerHTML = dealer_hand.print_hand;

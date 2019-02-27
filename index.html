@@ -11,14 +11,20 @@
 </div>
 
 
-<div class='dealer'>Dealer's Hand</div>
-<div id='dealer_hand'></div>
+<div id='play_area' class='play_area hidden'>
+	<div class='dealer'>Dealer's Hand</div>
+	<div id='dealer_hand'></div>
 
-<div class='player'>Player's Hand</div>
-<div id='player_hand'></div>
-<div><a id='start' href='#'>Play<a></div>
-<div><a id='hitme' href='#'>Get New Card<a></div>
-<div><a id='shuffle' href='#'>Shuffle<a></div>
+	<div class='player'>Player's Hand</div>
+	<div id='player_hand'></div>
+	<div class='hitme'><a id='hitme' href='#'>Get New Card</a></div>
+	<div class='stand'><a id='stand' href='#'>Stand</a></div>
+</div>
+
+<div class='actions'>
+<a id='start' href='#'>Play a New Game</a>
+<a id='shuffle' href='#'>Shuffle Deck</a>
+</div>
 <div id='play'></div>
 <script src="build/index.bundle.js"></script>
 </body>

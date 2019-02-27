@@ -69,6 +69,8 @@ var Hand = function () {
 
 			html += '\n\t\t\t<div class=\'count\'>Card Count Total: ' + this.total + '</div>\n\t\t';
 
+			html += this.bust_check;
+
 			return html;
 			/*
    		return `
@@ -123,6 +125,15 @@ var Hand = function () {
 		key: 'hit_me',
 		get: function get() {
 			this.cards.push(deck.pop());
+		}
+	}, {
+		key: 'bust_check',
+		get: function get() {
+			var total = this.total;
+			if (total > 21) {
+				return '<div class=\'bust\'>BUSTED!</div>';
+			}
+			return '';
 		}
 	}]);
 
@@ -235,6 +246,7 @@ document.getElementById('shuffle').addEventListener("click", function () {
 document.getElementById('start').addEventListener("click", function () {
 	shuffle(deck);
 	player_hand = new Hand(deck.pop(), deck.pop());
+	document.getElementById('play_area').classList.remove('hidden');
 	document.getElementById('player_hand').innerHTML = player_hand.print_hand;
 	dealer_hand = new Hand(deck.pop(), deck.pop());
 	document.getElementById('dealer_hand').innerHTML = dealer_hand.print_hand;
